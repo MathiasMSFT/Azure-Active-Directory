@@ -21,10 +21,10 @@
 #   no rights. Use of included script samples are subject to the terms      # 
 #   specified at http://www.microsoft.com/info/cpyright.htm.                # 
 #                                                                           #  
-#   Author: Donovan du Val 
-#   Contributor: Mathias Dumont  
+#   Author: Donovan du Val                                                  #
+#   Contributor: Mathias Dumont                                             #
 #   Version 1.1         Date Last Modified: 15 October 2020                 #  
-#   Version 1.2         Date Last Modified: 10 Janvier 2022                 #  
+#   Version 1.2         Date Last Modified: 10 January 2022                 #  
 #                                                                           #  
 #############################################################################  
 .SYNOPSIS
@@ -35,13 +35,13 @@
     The script will generate a report for all the Conditional Access Policies used in the Azure AD Tenant.
 .EXAMPLE
     Generates a report in the CSV and HTML format
-    PS C:\> Generate-ConditionalAccessReport.ps1 -export All
+    PS C:\> Generate-ConditionalAccess-Report.ps1 -export All
 .EXAMPLE
     Generates a report in the CSV format
-    PS C:\> Generate-ConditionalAccessReport.ps1 -export CSV
+    PS C:\> Generate-ConditionalAccess-Report.ps1 -export CSV
 .EXAMPLE
     Generates a report in the HTML format
-    PS C:\> Generate-ConditionalAccessReport.ps1 -export HTML
+    PS C:\> Generate-ConditionalAccess-Report.ps1 -export HTML
 .INPUTS
    No inputs
 .OUTPUTS

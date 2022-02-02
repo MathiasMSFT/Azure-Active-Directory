@@ -20,7 +20,10 @@
 #   This posting is provided "AS IS" with no warranties, and confers        # 
 #   no rights. Use of included script samples are subject to the terms      # 
 #   specified at https://www.microsoft.com/info/copyright.htm.              # 
-#                                                                           #  
+#                                                                           #
+#   Author: Donovan du Val                                                  #
+#   Contributor: Mathias Dumont                                             #
+#   Version 1.0         Date Last Modified: 18 October 2021                 #  
 #                                                                           #  
 #############################################################################  
 .SYNOPSIS
@@ -50,8 +53,6 @@
     Microsoft Graph PowerShell Module
     https://www.powershellgallery.com/packages/Microsoft.Graph
 
-    #### Script Version ####
-    # 10/18/2021 - Rev0.1 - Script creation
 #>
 [CmdletBinding()]
 param (
