@@ -14,9 +14,6 @@ All of these scripts will help you to manage PIM in Azure Active Directory
 ### Using the script
 PS> Generate-PIM-Report.ps1 -Export CSV
 
-### Credits
-Donovan Du Val / Mathias Dumont
-
 
 ## Get-Roles-In-PIM
 ### Project Goals
@@ -36,6 +33,3 @@ PS> Get-Roles-In-PIM.ps1 -PAG nameofmygroup
 
 ### Screenshot
 ![image](https://user-images.githubusercontent.com/94542446/164080499-f5784838-cc6f-452c-9f95-60679c844605.png)
-
-### Credits
-Mathias Dumont
