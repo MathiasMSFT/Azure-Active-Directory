@@ -35,3 +35,6 @@ PS> Get-Roles-In-PIM.ps1 -PAG nameofmygroup
 
 ### Screenshot
 ![image](https://user-images.githubusercontent.com/94542446/164080499-f5784838-cc6f-452c-9f95-60679c844605.png)
+
+# Disclaimer
+See [DISCLAIMER](./DISCLAIMER.md).
