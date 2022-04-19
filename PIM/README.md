@@ -34,5 +34,7 @@ PS> Get-Roles-In-PIM.ps1 -User myuser@contoso.com
 ### Using the script
 PS> Get-Roles-In-PIM.ps1 -PAG nameofmygroup
 
+### Screenshot
+
 ### Credits
 Mathias Dumont
