@@ -11,3 +11,6 @@ All of these scripts will help you to manage application in Azure Active Directo
 ### Using the script
 
 ### Credits
+
+# Disclaimer
+See [DISCLAIMER](./DISCLAIMER.md).

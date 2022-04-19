@@ -17,3 +17,6 @@ PS> Generate-ConditionalAccess-Report.ps1 -Export CSV
 
 ### Credits
 Donovan Du Val / Mathias Dumont
+
+# Disclaimer
+See [DISCLAIMER](./DISCLAIMER.md).
