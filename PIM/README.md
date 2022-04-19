@@ -17,7 +17,7 @@ PS> Generate-PIM-Report.ps1 -Export CSV
 
 ## Get-Roles-In-PIM
 [![Minimum Supported PowerShell Version](https://img.shields.io/badge/PS-5.1-blue.svg)]()
-<a href="https://twitter.com/shodanhq"><img src="https://img.shields.io/twitter/follow/mathias_dumont.svg?logo=twitter"></a>
+<a href="https://twitter.com/mathias_dumont"><img src="https://img.shields.io/twitter/follow/mathias_dumont.svg?logo=twitter"></a>
 ### Project Goals
 - Find roles assigned to a user or a Privileged Access Group.
 
