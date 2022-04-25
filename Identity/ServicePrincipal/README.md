@@ -10,11 +10,13 @@
 - April 24, 2022 : Contribution
 
 ## Using the script
+```
 PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "Yes"
-
+```
 ## Using the script
+```
 PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "No" -Certificate "C:\<mycertificate>.cer"
-
+```
 ## Screenshot
 ### First execution with Self-Signed
 ![image](https://user-images.githubusercontent.com/94542446/165003230-0907dbcd-35df-4c66-8931-8b56c8b74d28.png)
@@ -42,11 +44,13 @@ Certificates: if you import manually the same certificate
 
 ## And then ??
 ### Connect to AzureAD via AzureAD module
-Connect-AzureAD -AppId <ObjectId> -Certificatethumbprint <thumbprint> -TenantId <TenantId>
-
+```
+Connect-AzureAD -AppId "ObjectId" -Certificatethumbprint <thumbprint> -TenantId <TenantId>
+```
 ### Connect to AzureAD via MgGraph module
+```
 Connect-MgGraph -ClientID <AppId> -TenantId <TenantId> -CertificateThumbprint <thumbprint>
-
+```
 ![image](https://user-images.githubusercontent.com/94542446/165004332-dbada788-c2ac-47b9-b124-a88965b297e0.png)
 
 
