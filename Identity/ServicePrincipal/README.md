@@ -39,9 +39,11 @@ Certificates: if you import manually the same certificate
 ### Add key
 
 ## And then ??
-Connect to AzureAD
+### Connect to AzureAD via AzureAD module
+Connect-AzureAD -AppId <ObjectId> -Certificatethumbprint <thumbprint> -TenantId <TenantId>
 
-Connect-AzureAD -AppId <ObjectId> -Certificatethumbprint <thumbprint> -TenantId <Id>
+### Connect to AzureAD via MgGraph module
+Connect-MgGraph -ClientID <AppId> -TenantId <TenantId> -CertificateThumbprint <thumbprint>
 
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).
