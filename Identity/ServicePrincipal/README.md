@@ -18,7 +18,7 @@ PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "No" -Certific
 ## Screenshot
 ### First execution with Self-Signed
 ![image](https://user-images.githubusercontent.com/94542446/165003230-0907dbcd-35df-4c66-8931-8b56c8b74d28.png)
-<img width="302" alt="image" src="https://user-images.githubusercontent.com/94542446/165003261-0a76006b-5da9-4fd0-bcb5-a95992f301bf.png">
+![image](https://user-images.githubusercontent.com/94542446/165003261-0a76006b-5da9-4fd0-bcb5-a95992f301bf.png)
 
 Portal Azure
 
