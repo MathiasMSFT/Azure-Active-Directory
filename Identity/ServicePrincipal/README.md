@@ -38,7 +38,10 @@ Certificates: if you import manually the same certificate
 
 ### Add key
 
+## And then ??
+Connect to AzureAD
 
+Connect-AzureAD -AppId <ObjectId> -Certificatethumbprint <thumbprint> -TenantId <Id>
 
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).
