@@ -8,9 +8,9 @@ param (
     $SelfSigned,
     [Parameter(Mandatory=$false, Position=3)]
     $Certificate,
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory=$true, Position=4)]
     $TenantId,
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory=$true, Position=5)]
     $AccountUPN
 )
 
@@ -137,14 +137,3 @@ If (!($Error)) {
 } Else {
     Write-Host " Something went wrong" -ForegroundColor Red
 }
-
-
-
-
-
-<#
-## Create the Service Principal and connect it to the Application
-$sp = New-AzureADServicePrincipal -AppId $application.AppId
-#>
-
-# Connect-AzureAD -AppId $sp -Certificatethumbprint $cert -TenantId
