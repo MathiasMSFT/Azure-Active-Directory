@@ -45,5 +45,8 @@ Connect-AzureAD -AppId <ObjectId> -Certificatethumbprint <thumbprint> -TenantId 
 ### Connect to AzureAD via MgGraph module
 Connect-MgGraph -ClientID <AppId> -TenantId <TenantId> -CertificateThumbprint <thumbprint>
 
+![image](https://user-images.githubusercontent.com/94542446/165004332-dbada788-c2ac-47b9-b124-a88965b297e0.png)
+
+
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).
