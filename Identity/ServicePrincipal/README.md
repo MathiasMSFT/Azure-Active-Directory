@@ -16,6 +16,13 @@ PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "Yes"
 PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "No" -Certificate "C:\<mycertificate>.cer"
 
 ## Screenshot
+### First execution with Self-Signed
+
+
+### First execution with specific certificate
+
+
+### Add key
 
 
 
