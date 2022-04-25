@@ -22,15 +22,15 @@ PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "No" -Certific
 
 Portal Azure
 
-<img width="449" alt="image" src="https://user-images.githubusercontent.com/94542446/165003335-a9d80102-3c4e-49fb-8631-92c9e92b787a.png">
+![image](https://user-images.githubusercontent.com/94542446/165003335-a9d80102-3c4e-49fb-8631-92c9e92b787a.png)
 
 Certificates: The thumbprint is not available.
 
-<img width="485" alt="image" src="https://user-images.githubusercontent.com/94542446/165003370-4369c879-3ae1-4590-a675-f78799e54bcb.png">
+![image](https://user-images.githubusercontent.com/94542446/165003370-4369c879-3ae1-4590-a675-f78799e54bcb.png)
 
 Certificates: if you import manually the same certificate
 
-<img width="477" alt="image" src="https://user-images.githubusercontent.com/94542446/165003520-543da798-0fc0-4ada-b166-0144038ef7ad.png">
+![image](https://user-images.githubusercontent.com/94542446/165003520-543da798-0fc0-4ada-b166-0144038ef7ad.png)
 
 
 ### First execution with specific certificate
