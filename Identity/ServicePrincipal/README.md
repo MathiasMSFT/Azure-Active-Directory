@@ -36,7 +36,9 @@ Certificates: if you import manually the same certificate
 ### First execution with specific certificate
 
 
-### Add key
+### Add specific key
+![image](https://user-images.githubusercontent.com/94542446/165004786-a0cba9b5-ca3a-4073-b4d4-f7dd0b0a0b21.png)
+
 
 ## And then ??
 ### Connect to AzureAD via AzureAD module
