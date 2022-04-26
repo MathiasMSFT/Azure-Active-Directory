@@ -109,5 +109,5 @@ If ((!($User)) -and (!($PAG))) {
         $Roles.Displayname
     }
 
-    # Disconnect-MGGraph
+    Disconnect-MGGraph
 }
