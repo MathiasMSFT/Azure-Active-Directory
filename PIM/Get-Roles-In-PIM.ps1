@@ -44,7 +44,7 @@ Function MgGraph-Connect {
     } 
     else 
     {
-        write-host "Successfully Logged into Microsoft Graph" -ForegroundColor Green
+        write-host "Successfully logged into Microsoft Graph" -ForegroundColor Green
     }
 }
 
@@ -64,7 +64,9 @@ Function Get-Data {
             "DirectMemberUPN" = if ($RoleMember.AdditionalProperties.userPrincipalName){($RoleMember | ForEach-Object{$_.AdditionalProperties.userPrincipalName}) -join ","} else {"Null"}
             $AllMembers = ($RoleMember | ForEach-Object{
                 if ($_.AdditionalProperties.'@odata.type' -eq "#microsoft.graph.group") {
-                    $Members = ((Get-MgGroupMember -GroupId ((Get-MgGroup  -Filter "DisplayName eq '$($_.AdditionalProperties.displayName)'").Id)).AdditionalProperties.userPrincipalName) -join ","
+                    $GroupDisplayName = $($_.AdditionalProperties.displayName)
+                    $GroupDisplayName = $GroupDisplayName.Replace("'","''")
+                    $Members = ((Get-MgGroupMember -GroupId ((Get-MgGroup  -Filter "DisplayName eq '$GroupDisplayName'").Id)).AdditionalProperties.userPrincipalName) -join ","
                     $AllMembers += $Members
                 }
             })
@@ -80,7 +82,13 @@ Function Get-Data {
 If ((!($User)) -and (!($PAG))) {
     Write-Host "No parameter !!!" -ForegroundColor Red
 } Else {
-    MgGraph-Connect
+    If (!(Get-MgContext).Account) {
+        Write-Host "Not connected" -ForegroundColor Magenta
+        MgGraph-Connect
+    } Else {
+        Write-Host "Already logged into Microsoft Graph" -ForegroundColor Green
+        
+    }
 
     $Report = Get-Data
 
@@ -101,5 +109,5 @@ If ((!($User)) -and (!($PAG))) {
         $Roles.Displayname
     }
 
-    Disconnect-MGGraph
+    # Disconnect-MGGraph
 }

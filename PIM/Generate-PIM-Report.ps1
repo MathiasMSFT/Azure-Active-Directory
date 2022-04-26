@@ -59,10 +59,9 @@ param (
     [Parameter(Mandatory=$true, Position=0)]
     [ValidateSet("All", "CSV", "HTML")]
     $Export
-  )
-#Requires -Version 5.1
-#Requires -Modules Microsoft.Graph.Authentication, Microsoft.Graph.Identity.DirectoryManagement, Microsoft.Graph.Groups
-Begin {    
+)
+
+Function MgGraph-Connect {
     write-host "Importing the modules..."
     Import-Module Microsoft.Graph.Authentication, Microsoft.Graph.Identity.DirectoryManagement, Microsoft.Graph.Groups
 
@@ -76,13 +75,26 @@ Begin {
     } 
     else 
     {
-        write-host "Successfully Logged into Microsoft Graph" -ForegroundColor Green
+        write-host "Successfully logged into Microsoft Graph" -ForegroundColor Green
     }
+}
 
-    $Date = Get-Date -format dd-MMMM-yyyy
-    $Filename = "PIM-Report - $($Date)"
+#Requires -Version 5.1
+#Requires -Modules Microsoft.Graph.Authentication, Microsoft.Graph.Identity.DirectoryManagement, Microsoft.Graph.Groups
+
+
+If (!(Get-MgContext).Account) {
+    Write-Host "Not connected" -ForegroundColor Magenta
+    MgGraph-Connect
+} Else {
+    Write-Host "Already logged into Microsoft Graph" -ForegroundColor Green
     
-    $Head = @"  
+}
+
+$Date = Get-Date -format dd-MMMM-yyyy
+$Filename = "PIM-Report - $($Date)"
+
+$Head = @"  
 <style>
 header {
     text-align: center;
@@ -111,56 +123,56 @@ header {
     tr:nth-child(even) {background-color: #d6d6d6;}
 </style>  
 "@
-}
 
-process {
-    $Report = @()
-    ## Collects the roles using the MgDirectoryRole command.
-    foreach ($Role in (Get-MgDirectoryRole)) {
-        $RoleMember = Get-MgDirectoryRoleMember -DirectoryRoleId $($Role.id) 
-        $AllMembers = @()
-        ## Create report
-        $Report += New-Object PSobject -Property @{
-            "Displayname"  = $Role.displayName
-            "Description"  = $Role.Description
-            "RoleTemplateId" = $Role.RoleTemplateId
-            "ID"  = $Role.id
-            "DirectMemberDisplayname" = if ($RoleMember.AdditionalProperties.displayName){($RoleMember | ForEach-Object{$_.AdditionalProperties.displayName}) -join ","} else {"Null"}     
-            "DirectMemberUPN" = if ($RoleMember.AdditionalProperties.userPrincipalName){($RoleMember | ForEach-Object{$_.AdditionalProperties.userPrincipalName}) -join ","} else {"Null"}
-            $AllMembers = ($RoleMember | ForEach-Object{
-                if ($_.AdditionalProperties.'@odata.type' -eq "#microsoft.graph.group") {
-                    $Members = ((Get-MgGroupMember -GroupId ((Get-MgGroup  -Filter "DisplayName eq '$($_.AdditionalProperties.displayName)'").Id)).AdditionalProperties.userPrincipalName) -join ","
-                    $AllMembers += $Members
-                }
-            })
-            "MemberOfGroup" = $AllMembers -join ","
-        }
+
+$Report = @()
+## Collects the roles using the MgDirectoryRole command.
+foreach ($Role in (Get-MgDirectoryRole)) {
+    $RoleMember = Get-MgDirectoryRoleMember -DirectoryRoleId $($Role.id) 
+    $AllMembers = @()
+    ## Create report
+    $Report += New-Object PSobject -Property @{
+        "Displayname"  = $Role.displayName
+        "Description"  = $Role.Description
+        "RoleTemplateId" = $Role.RoleTemplateId
+        "ID"  = $Role.id
+        "DirectMemberDisplayname" = if ($RoleMember.AdditionalProperties.displayName){($RoleMember | ForEach-Object{$_.AdditionalProperties.displayName}) -join ","} else {"Null"}     
+        "DirectMemberUPN" = if ($RoleMember.AdditionalProperties.userPrincipalName){($RoleMember | ForEach-Object{$_.AdditionalProperties.userPrincipalName}) -join ","} else {"Null"}
+        $AllMembers = ($RoleMember | ForEach-Object{
+            if ($_.AdditionalProperties.'@odata.type' -eq "#microsoft.graph.group") {
+                $GroupDisplayName = $($_.AdditionalProperties.displayName)
+                $GroupDisplayName = $GroupDisplayName.Replace("'","''")
+                $Members = ((Get-MgGroupMember -GroupId ((Get-MgGroup  -Filter "DisplayName eq '$GroupDisplayName'").Id)).AdditionalProperties.userPrincipalName) -join ","
+                $AllMembers += $Members
+            }
+        })
+        "MemberOfGroup" = $AllMembers -join ","
     }
 }
 
-End {
-    Write-host "Creating the Reports." -ForegroundColor Green
-    $ReportData = $Report | Select-Object -Property Displayname,Description,RoleTemplateId,ID,DirectMemberDisplayname,DirectMemberUPN,MemberOfGroup | Sort-Object -Property Displayname
-    Write-Host "" 
-    switch ($Export) {
-        "All" { 
-            Write-host "Generating the HTML Report." -ForegroundColor Green
-            $ReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Privileged Identity Management Report - $Date</center></h1></font>" | Out-File "$Filename.html"
-            
-            Write-host "Generating the CSV Report." -ForegroundColor Green
-            $ReportData | Export-Csv "$Filename.csv" -NoTypeInformation 
-        }
-        "CSV" {
-            Write-host "Generating the CSV Report." -ForegroundColor Green
-            $ReportData | Export-Csv "$Filename.csv" -NoTypeInformation
-        }
-        "HTML" {
-            Write-host "Generating the HTML Report." -ForegroundColor Green
-            $ReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Privileged Identity Management Report - $Date</center></h1></font>" | Out-File "$Filename.html"
-        }
-    }
-    Write-Host ""
-    write-host "Disconnecting from Microsoft Graph" -ForegroundColor Green
 
-    Disconnect-MGGraph
+
+Write-host "Creating the Reports." -ForegroundColor Green
+$ReportData = $Report | Select-Object -Property Displayname,Description,RoleTemplateId,ID,DirectMemberDisplayname,DirectMemberUPN,MemberOfGroup | Sort-Object -Property Displayname
+Write-Host "" 
+switch ($Export) {
+    "All" { 
+        Write-host "Generating the HTML Report." -ForegroundColor Green
+        $ReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Privileged Identity Management Report - $Date</center></h1></font>" | Out-File "$Filename.html"
+        
+        Write-host "Generating the CSV Report." -ForegroundColor Green
+        $ReportData | Export-Csv "$Filename.csv" -NoTypeInformation 
+    }
+    "CSV" {
+        Write-host "Generating the CSV Report." -ForegroundColor Green
+        $ReportData | Export-Csv "$Filename.csv" -NoTypeInformation
+    }
+    "HTML" {
+        Write-host "Generating the HTML Report." -ForegroundColor Green
+        $ReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Privileged Identity Management Report - $Date</center></h1></font>" | Out-File "$Filename.html"
+    }
 }
+Write-Host ""
+write-host "Disconnecting from Microsoft Graph" -ForegroundColor Green
+
+Disconnect-MGGraph
