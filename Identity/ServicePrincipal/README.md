@@ -11,11 +11,11 @@
 
 ## Using the script
 ```
-PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "Yes"
+PS> Create-Application.ps1 -AppName "SP-AzureAD" -SelfSigned "Yes"
 ```
 ## Using the script
 ```
-PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "No" -Certificate "C:\<mycertificate>.cer"
+PS> Create-Application.ps1 -AppName "SP-AzureAD" -SelfSigned "No" -Certificate "C:\<mycertificate>.cer"
 ```
 ## Screenshot
 ### First execution with Self-Signed
