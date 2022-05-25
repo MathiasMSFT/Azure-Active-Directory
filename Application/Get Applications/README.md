@@ -4,14 +4,15 @@ This script lists the application you have. It's possible to export them in CSV 
 ## Prerequisites
 Modules: Microsoft.Graph.Applications, Microsoft.Graph.Authentication, Microsoft.Graph.Identity.SignIns
 
-## Parameter Applications
+## Parameters
+### Applications
+List all applications
 
+### ServicePrincipal
+List all Service Principal
 
-## Parameter ServicePrincipal
-
-
-## Parameter ExportFile
-
+### ExportFile
+Export your datas in CSV, HTML or both
 
 ## Using the script
 PS> .\List-applications.ps1 -Applications
