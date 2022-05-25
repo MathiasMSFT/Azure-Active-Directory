@@ -191,16 +191,29 @@ Function GetServicePrincipal {
 
     }
 
-    $SPReportData = $SPReport | Select-Object -Property Displayname,Enabled,AppDisplayname,SPType,SPNames,Description,Owners,ID,Endpoints,MemberOf,PreferredSingleSignOnMode,SamlSingleSignOnSettings,`
-        PreferredTokenSigninKeyThumbprint,SignInAudience,NotifEmailAddresses,ApplicationTemplateId,AppId,AppRoleAssignmentRequired,AppRoles,AppRoleAssignments,AppRoleAssignedTo,`
-        AppOwnerOrganizationId,HomePage,LogintUrl,LogoutUrl,ReplyUrls,HomeRealmDiscoveryPolicies,ClaimsMappingPolicies,InfoLogoUrl,InfoMarketingUrl,InfoPrivacyStatementUrl,InfoSupportUrl,`
-        InfoTermsOfServiceUrl,Notes,Oauth2PermissionGrants,Oauth2PermissionScopes,PassCred,KeyCred,TokenEncryptionKeyId,TokenIssuancePolicies,TokenLifetimePolicies,`
-        Tags,AddIns,DeletedDateTime,DisabledByMicrosoftStatus | Sort-Object -Property Displayname # | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Service Principal Report - $Date</center></h1></font>" | Out-File "$Filename.html" -Append
+    $SelectedColumns = $SPReport | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | Out-GridView -PassThru -Title "Select your column"
+    $SPReportData = $SPReport | Select-Object -Property $SelectedColumns | Sort-Object -Property Displayname
+    $SPReportData | Out-GridView -Title "Service Principal Report - $Date" -PassThru
 
 
-    $SPReportData | Out-GridView -Title "Service Principal Report - $Date" -PassThru | Select-Object -Property Displayname,Enabled,AppDisplayname | Export-Csv -Path ".\$Filename-SP.csv" -NoTypeInformation
-    Write-host "Generating the HTML Report." -ForegroundColor Green
-    $SPReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Service Principal Report - $Date</center></h1></font>" | Out-File "$Filename.html" -Append
+    If ($ExportFile){
+        Switch ($ExportFile) {
+            "CSV" {
+                Write-host "Generating the CSV Report." -ForegroundColor Green
+                $SPReportData | Export-Csv -Path ".\$Filename-SP.csv" -NoTypeInformation
+            }
+            "HTML" {
+                Write-host "Generating the HTML Report." -ForegroundColor Green
+                $SPReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Service Principal Report - $Date</center></h1></font>" | Out-File "$Filename.html"
+            }
+            Default {
+                Write-host "Generating the CSV Report." -ForegroundColor Green
+                $SPReportData | Export-Csv -Path ".\$Filename-SP.csv" -NoTypeInformation
+                Write-host "Generating the HTML Report." -ForegroundColor Green
+                $SPReportData | ConvertTo-HTML -head $Head -Body "<font color=`"Black`"><h1><center>Service Principal Report - $Date</center></h1></font>" | Out-File "$Filename.html"
+            }
+        }
+    }
 
 }
 
@@ -263,39 +276,3 @@ Switch ($Parameter) {
         GetServicePrincipal
     }
 }
-
-
-
-## Get Service Principal
-# Get-MgServicePrincipal -Filter "AppId eq $AppId"
-# $SPId = (Get-MgServicePrincipal -Filter "AppId eq $AppId").Id
-
-## Get permission
-# $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | Where-Object { $_.ClientId -eq $SPId}
-
-
-<#
-# Get all Service Principal
-$AllSP = Get-AzureADServicePrincipal
-
-$AllSP | ForEach {
-    Write-Host "Name: $($_.DisplayName)" -ForegroundColor Yellow
-    GetPermissions -AppId $_.AppId
-}
-#>
-
-
-<#
-# Remove all delegated permissions
-$spOAuth2PermissionsGrants | ForEach-Object {
-    Remove-AzureADOAuth2PermissionGrant -ObjectId $_.ObjectId
-}
-
-# Get all application permissions for the service principal
-$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
-
-# Remove all delegated permissions
-$spApplicationPermissions | ForEach-Object {
-    Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
-}
-#>
