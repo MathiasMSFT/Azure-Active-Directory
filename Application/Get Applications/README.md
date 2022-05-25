@@ -1,4 +1,6 @@
 # List Applications
+[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PS-5.1-blue.svg)]()
+
 This script lists the application you have. It's possible to export them in CSV or HTML.
 
 ## Prerequisites
@@ -15,7 +17,9 @@ List all Service Principal
 Export your datas in CSV, HTML or both
 
 ## Using the script
+```
 PS> .\List-applications.ps1 -Applications
+```
 
 ![image](./images/List-App-1.png)
 
@@ -37,12 +41,15 @@ Example of HTML report
 
 
 ## Using the script
+```
 PS> .\List-applications.ps1 -ServicePrincipal
+```
 
 ## Using the script
+```
 PS> .\List-applications.ps1 -Applications -ExportFile "HTML"
+```
 
-## Using the script
 
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).

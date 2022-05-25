@@ -1,7 +1,5 @@
 # Service Principal
 [![Minimum Supported PowerShell Version](https://img.shields.io/badge/PS-5.1-blue.svg)]()
-## Project Goals
-- Create an application with a certificate.
 
 ## Current Version
 - Version: 1.0
