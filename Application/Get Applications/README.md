@@ -23,12 +23,16 @@ Select the columns you want to have
 ![image](./images/List-App-2.png)
 
 
-Select the data you want to have (Ctrl + A)
+Select the data you want to have (ex: Ctrl + A)
 ![image](./images/List-App-3.png)
 
 
 Here the list of your apps with your selected columns.
 ![image](./images/List-App-4.png)
+
+
+Example of HTML report
+![image](./images/List-App-HTML.png)
 
 
 ## Using the script
