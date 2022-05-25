@@ -1,7 +1,7 @@
 ConnectAAD
 
 # Get Service Principal using objectId
-$sp = Get-AzureADServicePrincipal -ObjectId "51726f68-ffae-457b-bc53-0f267e558725"
+$sp = Get-AzureADServicePrincipal -ObjectId "<ObjectId>"
 
 # Get all delegated permissions for the service principal
 $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true| Where-Object { $_.clientId -eq $sp.ObjectId }
