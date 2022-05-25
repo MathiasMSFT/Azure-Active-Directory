@@ -276,3 +276,5 @@ Switch ($Parameter) {
         GetServicePrincipal
     }
 }
+
+Disconnect-MgGraph
