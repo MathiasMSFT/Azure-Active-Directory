@@ -1,7 +1,7 @@
 # List Applications
-These scripts
 
-## Prerequisites
+
+## List-Applications.ps1
 ### Project Goals
 
 ### Current Version

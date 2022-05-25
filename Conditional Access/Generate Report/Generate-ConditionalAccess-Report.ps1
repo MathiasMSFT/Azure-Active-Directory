@@ -242,6 +242,11 @@ foreach ($pol in (Get-MgIdentityConditionalAccessPolicy)) {
     }
 }
   
+
+
+Get-AzureADUser ..... | Get-AzureADGroup .... | Get-AzureAdGroupMember
+
+
 end {
 
     Write-host "Creating the Reports." -ForegroundColor Green
