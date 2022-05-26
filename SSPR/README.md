@@ -17,11 +17,11 @@ In this video, the user is invited to register a method.
 
 ## ForgotMyPassword-OnPrem
 In this video, the user forgot his password (On-Premise).
-![video](https://youtu.be/1xVK9ah6q9I)
+[![Alt text](https://img.youtube.com/vi/1xVK9ah6q9I/0.jpg)](https://www.youtube.com/watch?v=1xVK9ah6q9I)
 
 ## ValidationOfMethods
 In this video, the user is invited to validate his/their method(s).
-![video](https://youtu.be/2HfEd18RVzc)
+[![Alt text](https://img.youtube.com/vi/2HfEd18RVzc/0.jpg)](https://www.youtube.com/watch?v=2HfEd18RVzc)
 
 
 # Disclaimer
