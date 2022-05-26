@@ -12,15 +12,15 @@ PS>
 # Videos
 ## Registration-NextLogon
 In this video, the user is invited to register a method.
-![video](./videos/Registration-NextLogon.mov)
+![video](https://youtu.be/4Lj8zWdL2oc)
 
 ## ForgotMyPassword-OnPrem
 In this video, the user forgot his password (On-Premise).
-![video](./videos/ForgotMyPassword-OnPrem.mov)
+![video](https://youtu.be/1xVK9ah6q9I)
 
 ## ValidationOfMethods
 In this video, the user is invited to validate his/their method(s).
-![video](./videos/ValidationOfMethods.mov)
+![video](https://youtu.be/2HfEd18RVzc)
 
 
 # Disclaimer
