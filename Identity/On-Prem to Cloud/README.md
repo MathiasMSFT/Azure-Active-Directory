@@ -2,7 +2,7 @@
 In this scenario, imagine you migrated all your workloads to Azure and your identities/groups are synced to Azure AD.
 You don't want to recreate all your synced objects in Azure AD.
 
-INFO: it's not possible to user MgGrapg to do that.
+INFO: it's not possible to user MgGraph to do that.
 
 ## User objects
 It's possible to convert identities to cloud-only.
