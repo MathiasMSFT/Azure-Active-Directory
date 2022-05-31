@@ -18,6 +18,7 @@ Restore the user in Azure AD
 ![image](./images/Deleted-user.png)
 
 The user object will be restored
+
 ![image](./images/Restored.png)
 
 
