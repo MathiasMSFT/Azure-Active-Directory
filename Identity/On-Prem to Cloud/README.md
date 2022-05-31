@@ -11,10 +11,12 @@ It's possible to convert identities to cloud-only.
 
 ### Unsync the user object
 Move the user object in Active Directory to an unsynced OU. The user will be deleted in Azure AD.
+
 ![image](./images/Unsync-user.png)
 
 ### Restore the user in Azure AD
 Restore the user in Azure AD
+
 ![image](./images/Deleted-user.png)
 
 The user object will be restored
@@ -35,7 +37,7 @@ Change the value of immutableId
 ```
 PS> Get-AzureADuser -SearchString <UserPrincipaName> | Set-Msoluser -ImmutableId $null
 ```
-![image](./images/Set-ImmutabledId.png)
+![image](./images/Set-ImmutableId.png)
 
 
 ### Everything is okay
