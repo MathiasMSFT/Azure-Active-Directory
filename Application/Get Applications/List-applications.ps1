@@ -135,7 +135,7 @@ Function GetServicePrincipal {
     ForEach ($ServicePrincipal in $(Get-MgServicePrincipal)){
         Write-Host $($ServicePrincipal.DisplayName) -ForegroundColor Yellow
 
-        (Get-MgServicePrincipal -Filter "AppId eq '$($Application.AppId)'").Oauth2PermissionGrants
+        (Get-MgServicePrincipal -Filter "AppId eq '$($ServicePrincipal.AppId)'").Oauth2PermissionGrants
 
         $SPReport += New-Object PSobject -Property @{
             "Displayname"  = if ($ServicePrincipal.DisplayName){$ServicePrincipal.DisplayName}Else{"Not Configured"}
