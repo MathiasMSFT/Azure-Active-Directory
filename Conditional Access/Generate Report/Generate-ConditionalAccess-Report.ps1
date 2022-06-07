@@ -244,7 +244,7 @@ foreach ($pol in (Get-MgIdentityConditionalAccessPolicy)) {
   
 
 
-Get-AzureADUser ..... | Get-AzureADGroup .... | Get-AzureAdGroupMember
+# Get-AzureADUser ..... | Get-AzureADGroup .... | Get-AzureAdGroupMember
 
 
 end {
