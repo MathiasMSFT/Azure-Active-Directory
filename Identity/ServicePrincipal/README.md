@@ -9,7 +9,7 @@
 
 ## Using the script
 ```
-PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "Yes"
+PS> Create-ServicePrincipal.ps1 -AppName "SP-AzureAD" -SelfSigned "Yes" -Tenantid "<tenantid>" -AccountUPN "<UPN>"
 ```
 ## Using the script
 ```
