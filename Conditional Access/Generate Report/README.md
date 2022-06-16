@@ -1,16 +1,31 @@
-# Generate-ConditionalAccess-Report
-This script generate an export of your policies in CSV or HTML or both
+# Generate a ConditionalAccess report
+This script generate a report of your rules and you can export them in CSV or HTML or both
+
+## Parameters
+### Export
+Select type of export
 
 ## Using the script
+Without export
 ```
-PS> Generate-ConditionalAccess-Report.ps1 -Export CSV
+PS> .\Generate-ConditionalAccess-Report.ps1
+```
+Select the columns you want to have
+![image](./images/Report-Select-Column.png)
+
+Select the data you want to have (ex: Ctrl + A)
+![image](./images/Report-Select-Data.png)
+
+Here the list of your apps with your selected columns.
+![image](./images/Report-Select-Result.png)
+
+
+
+With export
+```
+PS> .\Generate-ConditionalAccess-Report.ps1 -Export CSV
 ```
 
-## Current Version
-- Version: 1.2
-
-## History
-- Jan 10, 2022 : Contribution
 
 ## Credits
 Donovan Du Val / Mathias Dumont

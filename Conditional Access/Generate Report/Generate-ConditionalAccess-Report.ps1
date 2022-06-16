@@ -59,7 +59,7 @@
 #>
 [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory=$false, Position=0)]
     [ValidateSet("All", "CSV", "HTML")]
     $Export
   )
@@ -200,7 +200,7 @@ process {
     $servicePrincipals = Get-MgServicePrincipal | Select-Object AppDisplayName,AppId
     Write-Host ""
     $Report = @()
-#Collects the conditional access policies using the mgconditionalaccesspolicy command.
+
 $Report = @()
 #Collects the conditional access policies using the mgconditionalaccesspolicy command.
 foreach ($pol in (Get-MgIdentityConditionalAccessPolicy)) {
@@ -243,14 +243,12 @@ foreach ($pol in (Get-MgIdentityConditionalAccessPolicy)) {
 }
   
 
-
-# Get-AzureADUser ..... | Get-AzureADGroup .... | Get-AzureAdGroupMember
-
-
 end {
 
+    $SelectedColumns = $Report | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | Out-GridView -PassThru -Title "Select your column"
     Write-host "Creating the Reports." -ForegroundColor Green
-    $ReportData = $Report | Select-Object -Property Displayname,Description,State,ID,createdDateTime,ModifiedDateTime,UserIncludeUsers,UserExcludeUsers,UserIncludeGroups,UserExcludeGroups,ConditionSignInRiskLevels,ConditionClientAppTypes,PlatformIncludePlatforms,PlatformExcludePlatforms,DevicesFilterStatesMode,DevicesFilterStatesRule,ApplicationIncludeApplications,ApplicationExcludeApplications,ApplicationIncludeUserActions,LocationIncludeLocations,LocationExcludeLocations,GrantControlBuiltInControls,GrantControlTermsOfUse,GrantControlOperator,GrantControlCustomAuthenticationFactors,ApplicationEnforcedRestrictions,CloudAppSecurityCloudAppSecurityType,CloudAppSecurityIsEnabled,PersistentBrowserIsEnabled,PersistentBrowserMode,SignInFrequencyIsEnabled,SignInFrequencyType,SignInFrequencyValue | Sort-Object -Property Displayname
+    $ReportData = $Report | Select-Object -Property $SelectedColumns | Sort-Object -Property Displayname
+    $ReportData | Out-GridView -Title "Conditional Access Policies Report - $Date" -PassThru
     Write-Host "" 
     switch ($Export) {
         "All" { 
