@@ -17,7 +17,7 @@ Select the data you want to have (ex: Ctrl + A)
 ![image](./images/Report-Select-Data.png)
 
 Here the list of your apps with your selected columns.
-![image](./images/Report-Select-Result.png)
+![image](./images/Report-Result.png)
 
 
 
