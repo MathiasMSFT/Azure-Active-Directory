@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_educationapp_25425_name": {
+            "value": null
+        },
+        "serverfarms_mathias_dumont_asp_2217_name": {
+            "value": null
+        },
+        "storageAccounts_cloudshell289304334_name": {
+            "value": null
+        }
+    }
+}
