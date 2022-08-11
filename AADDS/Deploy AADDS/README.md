@@ -1,6 +1,5 @@
 # Create an Azure Active Directory Domain Services
 
-
 ## Enter your information: Basics
 - Select your Resource Group
 - Enter the DNS domain name
