@@ -3,8 +3,9 @@
 ## Prerequisites
 
 
-## Pre-hire (./Pre-Hire.md)
-[Link](./Pre-Hire.md).
+## Pre-hire
+You can execute some tasks before the hire date of your employees.
+[How-to](./Pre-Hire.md)
 
 ## New hire
 
