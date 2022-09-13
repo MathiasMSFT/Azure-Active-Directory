@@ -1,5 +1,5 @@
 # Movers
-In this scenario, 
+In this scenario, we will run a specific task perform via a logic app.
 
 ## Create a new workflow
 ### Choose a workflow
@@ -20,7 +20,7 @@ By default, these 3 tasks are added.
 ![image](./images/Movers_3.png)
 
 Select all tasks and remove them.
-Add a new task and select "Run a Custom Task Extension.
+Add a new task and select "Run a Custom Task Extension".
 
 ![image](./images/Movers_4.png)
 
