@@ -4,7 +4,7 @@ In this scenario, we want to execute some pre-hire tasks for employees (permanen
 ## Create a new workflow
 ### Choose a workflow
 
-![image](./images/WF_Pre-Hire_1.png)
+![image](./images/WF-PreHire-1.png)
 
 ### Basics info
 - Define the name of this Pre-Hire employee
