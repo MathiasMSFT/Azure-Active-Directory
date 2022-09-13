@@ -53,7 +53,7 @@ Here a dashboard of your workflow. You can disable it or run it.
 
 ![image](./images/PreHire_8.png)
 
-Click-on "View and edit details" to modify the trigger and/or scope.
+Click on "View and edit details" to modify the trigger and/or scope.
 
 ![image](./images/PreHire_8.1.png)
 
@@ -75,7 +75,7 @@ It's possible to review the old configuration.
 
 ![image](./images/PreHire_8.3.png)
 
-Click-on the number.
+Click on the number.
 
 ![image](./images/PreHire_8.4.png)
 
