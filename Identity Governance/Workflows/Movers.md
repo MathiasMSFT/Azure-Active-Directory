@@ -1,5 +1,5 @@
 # Movers
-In this scenario, we will run a specific task perform via a logic app.
+In this scenario, we will run a specific task via a logic app.
 
 ## Create a new workflow
 ### Choose a workflow
