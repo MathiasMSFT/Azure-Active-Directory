@@ -7,7 +7,7 @@ In this scenario, we want to execute tasks for newly hired employees (permanent)
 ![image](./images/NewHire_1.png)
 
 ### Basics info
-- Define the name of this New-Hire employee
+- Define the name of this New-Hire employee workflow
 - Enter a description which help all admins to understand the objective of this workflow
 
 ![image](./images/NewHire_2.png)

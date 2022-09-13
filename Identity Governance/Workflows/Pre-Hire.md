@@ -7,7 +7,7 @@ In this scenario, we want to execute some pre-hire tasks for employees (permanen
 ![image](./images/PreHire_1.png)
 
 ### Basics info
-- Define the name of this Pre-Hire employee
+- Define the name of this Pre-Hire employee workflow
 - Enter a description which help all admins to understand the objective of this workflow
 - Set the number of days before the hire date that this workflow should start. By default it's 7 days.
 
