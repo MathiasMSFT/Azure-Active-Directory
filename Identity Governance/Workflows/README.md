@@ -3,7 +3,7 @@
 ## Prerequisites
 
 
-## Pre-hire
+## Pre-hire (./Pre-Hire.md)
 [Link](./Pre-Hire.md).
 
 ## New hire
