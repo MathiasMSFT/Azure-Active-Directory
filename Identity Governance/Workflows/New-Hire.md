@@ -1,5 +1,5 @@
 # New-hire
-In this scenario, we want to execute some new-hire tasks for employees (permanent). For example, we will enable the identity and assign it a default package.
+In this scenario, we want to execute tasks for newly hired employees (permanent). For example, we will enable the identity and assign it a default package.
 
 ## Create a new workflow
 ### Choose a workflow
