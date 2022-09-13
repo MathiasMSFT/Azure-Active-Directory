@@ -1,8 +1,7 @@
 # On-Premises to Cloud
-In this scenario, imagine you migrated all your workloads to Azure and your identities/groups are synced to Azure AD.
-You don't want to recreate all your synced objects in Azure AD.
+In this scenario, we want to migrate our hybrid identity to a cloud identity.
 
-INFO: it's not possible to user MgGraph to do that.
+INFO: it's not possible to use MgGraph to do that.
 
 ## User objects
 It's possible to convert identities to cloud-only.
