@@ -18,6 +18,7 @@ In this scenario, we want to execute some pre-hire tasks for employees (permanen
 - Select the attribute
 - Select the operator
 - Enter the value
+The value of the attribut(s) can come from HR tools or your source of trust.
 
 ![image](./images/PreHire_3.png)
 
@@ -59,7 +60,7 @@ Click on "View and edit details" to modify the trigger and/or scope.
 
 
 ### Tasks
-You can add/remove tasks.
+You can add/remove/disable/reorder tasks.
 
 ![image](./images/PreHire_8.0.png)
 
