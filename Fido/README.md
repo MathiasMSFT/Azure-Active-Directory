@@ -27,7 +27,7 @@ Here a summary of the steps:
 5. Use it with your finger
 
 
-[![Alt text](https://img.youtube.com/vi/yDfhlcsyk90/0.jpg)]https://youtu.be/yDfhlcsyk90
+[![Alt text](https://img.youtube.com/vi/5UQyqTDawAc/0.jpg)]https://youtu.be/5UQyqTDawAc
 
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).
