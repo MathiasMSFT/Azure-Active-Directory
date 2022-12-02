@@ -16,5 +16,18 @@ In this video, the user is going to enroll his Yubikey without MFA through a cel
 [![Alt text](https://img.youtube.com/vi/IH59-ounTkM/0.jpg)](https://youtu.be/IH59-ounTkM)
 
 
+## Demo of HyperFido Bio
+In this video, the user use his fingerprint to sign in through the browser and also on Windows.
+
+Here a summary of the steps:
+1. Go to Accounts on Windows and select Security key
+2. Click on Manage
+3. Set up your Security Key Fingerprint. Don't forget to configure 2 fingers ;)
+4. Add security key as a new method
+5. Use it with your finger
+
+
+[![Alt text](https://img.youtube.com/vi/yDfhlcsyk90/0.jpg)]https://youtu.be/yDfhlcsyk90
+
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).
