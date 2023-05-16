@@ -220,7 +220,8 @@ Function GetServicePrincipal {
 Function GetPermissions {
     param($AppId)
     # Get all delegated permissions for the service principal
-    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | Where-Object { $_.ClientId -eq $AppId }
+    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | fl #| Where-Object { $_.ClientId -eq $AppId }
+    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | Where-Object { $_.ClientId -eq '6fb25cd7-aa3c-41f9-9153-9dfd0aa153bc'}
     return $spOAuth2PermissionsGrants
 }
 
