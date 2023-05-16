@@ -33,7 +33,7 @@ Function GetApplications {
     ForEach ($Application in $(Get-MgApplication)){
         Write-Host $($Application.DisplayName) -ForegroundColor Yellow
 
-        (Get-MgServicePrincipal -Filter "AppId eq '$($Application.AppId)'").Oauth2PermissionGrants
+        $spOAuth2PermissionsGrants = (Get-MgServicePrincipal -Filter "AppId eq '$($Application.AppId)'").Oauth2PermissionGrants
 
         $AppReport += New-Object PSobject -Property @{
             "Displayname"  = if ($Application.DisplayName){$Application.DisplayName}Else{"Not Configured"}
@@ -98,7 +98,7 @@ Function GetApplications {
             "DeletedDateTime" = if ($Application.DeletedDateTime){$Application.DeletedDateTime}Else{"Not Configured"}
             "DisabledByMicrosoftStatus" = if ($Application.DisabledByMicrosoftStatus){$Application.DisabledByMicrosoftStatus}Else{"Not Configured"}
             "IsFallbackPublicClient" = if ($Application.IsFallbackPublicClient){$Application.IsFallbackPublicClient}Else{"Not Configured"}
-
+            "OAuth2Permissions" = if ($spOAuth2PermissionsGrants){$spOAuth2PermissionsGrants}Else{"Not Configured"}
         }
 
     }
@@ -220,8 +220,7 @@ Function GetServicePrincipal {
 Function GetPermissions {
     param($AppId)
     # Get all delegated permissions for the service principal
-    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | fl #| Where-Object { $_.ClientId -eq $AppId }
-    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | Where-Object { $_.ClientId -eq '6fb25cd7-aa3c-41f9-9153-9dfd0aa153bc'}
+    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true | Where-Object { $_.ClientId -eq $AppId }
     return $spOAuth2PermissionsGrants
 }
 
@@ -229,7 +228,8 @@ Function GetPermissions {
 #requires -Modules Microsoft.Graph.Applications, Microsoft.Graph.Authentication, Microsoft.Graph.Identity.SignIns
 Try {
     ## MgGraph
-    Connect-MgGraph -Scopes Application.Read.All, Application.ReadWrite.All, DelegatedPermissionGrant.ReadWrite.All
+    # Connect-MgGraph -Scopes Application.Read.All, Application.ReadWrite.All, DelegatedPermissionGrant.ReadWrite.All
+    Connect-MgGraph -Scopes Application.Read.All
     Write-Host "Module MgGraph imported" -ForegroundColor Green
 }
 Catch {
