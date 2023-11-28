@@ -61,9 +61,9 @@ Function GetApplications {
             "AddPropKey" = if ($Application.AdditionalProperties.Keys){$Application.AdditionalProperties.Keys -join ","}Else{"Not Configured"}
             "AddPropValue" = if ($Application.AdditionalProperties.Value){$Application.AdditionalProperties.Value -join ","}Else{"Not Configured"}
             "GroupMembershipClaims" = if ($Application.GroupMembershipClaims){$Application.GroupMembershipClaims}Else{"Not Configured"}
-            "OptClaimsAccessToken" = if ($Application.OptionalClaims.AccessToken){$Application.OptionalClaims.AccessToken -join ","}Else{"Not Configured"}
-            "OptClaimsIdToken" = if ($Application.OptionalClaims.IdToken){$Application.OptionalClaims.IdToken -join ","}Else{"Not Configured"}
-            "OptClaimsSaml2Token" = if ($Application.OptionalClaims.Saml2Token){$Application.OptionalClaims.Saml2Token -join ","}Else{"Not Configured"}
+            "OptClaimsAccessToken" = if ($Application.OptionalClaims.AccessToken.Name){$Application.OptionalClaims.AccessToken.Name -join ","}Else{"Not Configured"}
+            "OptClaimsIdToken" = if ($Application.OptionalClaims.IdToken.Name){$Application.OptionalClaims.IdToken.Name -join ","}Else{"Not Configured"}
+            "OptClaimsSaml2Token" = if ($Application.OptionalClaims.Saml2Token.Name){$Application.OptionalClaims.Saml2Token.Name -join ","}Else{"Not Configured"}
             "OptClaimsAdditionalProperties" = if ($Application.OptionalClaims.AdditionalProperties){$Application.OptionalClaims.AdditionalProperties -join ","}Else{"Not Configured"}
             "InfoLogoUrl" = if ($Application.Info.LogoUrl){$Application.Info.LogoUrl}Else{"Not Configured"}
             "InfoMarketingUrl" = if ($Application.Info.MarketingUrl){$Application.Info.MarketingUrl -join ","}Else{"Not Configured"}
