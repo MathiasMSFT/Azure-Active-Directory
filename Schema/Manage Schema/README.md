@@ -32,8 +32,34 @@ If you want to get the list of attributes, it's not necessary to connect on Entr
 | Schema Extension      |    $1             | Application   |                |         |         |
 
 ### Using the script
+List all extensionProperties for default app in Azure AD
 ```
-PS> .\List-applications.ps1 -Applications
+PS C:\> Manage-ExtensionProperties.ps1 -ListDefaultApp
+```
+
+List all extensionProperties for my app in Azure AD
+```
+PS C:\> Manage-ExtensionProperties.ps1 -ListMyApp -MyAppDisplayName "MyApps"
+```
+
+Get all extensionProperties for a specific user
+```
+PS C:\> Manage-ExtensionProperties.ps1 -Check -UPN "mathias.dumont@contoso.com"
+```
+
+Create an extensionProperties in Azure AD
+```
+PS C:\> Manage-ExtensionProperties.ps1 -Create -MyAppDisplayName "MyApps" -AttributName "UID" -DataType "string" -Object "User"
+```
+
+Write an extensionProperties in Azure AD
+```
+PS C:\> Manage-ExtensionProperties.ps1 -WriteValue -UPN "mathias.dumont@contoso.com"
+```
+
+Delete an extensionProperties in Azure AD
+```
+PS C:\> Manage-ExtensionProperties.ps1 -Delete -MyAppDisplayName "MyApps"
 ```
 
 
