@@ -7,10 +7,11 @@ Let see.
 
 
 ## Directory Extension
-Azure AD Connect uses this one to sync your On-Premises attributes to Azure Active Directory. 
-When you enable "custom attributes", a new app is creating in your Azure AD named <b>aad-extensions-app. Do not modify. Used by AAD for storing user data</b>
+Azure AD Connect uses a Directory Extension et External Identities also. 
+When you enable "custom attributes", a new app is creating in your Azure AD named <b>Tenant Schema Extension App</b>.
+For External Identities, the name is <b>aad-extensions-app. Do not modify. Used by AAD for storing user data</b>
 
-![image](./images/DirectoryExtension-AADConnect.png)
+![image](./images/DirectoryExtension-ExternalIdentities.png)
 
 
 If you want to get the list of attributes, it's not necessary to connect on Azure AD Connect. You can use this script: Manage-ExtensionProperty.ps1.
