@@ -16,7 +16,6 @@ For Entra Connect, the named is <b>Tenant Schema Extension App</b>.
 If you want to get the list of attributes, it's not necessary to connect on Entra Connect. You can use this script: Manage-ExtensionProperty.ps1.
 ![image](./images/DirectoryExtension-GetAttributes.png)
 
-It's not recommended to use it to store user datas because that uses Azure AD Graph which will be deprecated.
 
 ## Open Extension
 
