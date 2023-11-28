@@ -2,7 +2,7 @@
 [![Minimum Supported PowerShell Version](https://img.shields.io/badge/PS-5.1-blue.svg)]()
 
 In Active Directory you can use a lot of attributes to store information that you can use for specifc needs (identity management, access management, ...).
-In Entra ID you have less attributes and it works differently. You don't have only one "schema".
+In Entra ID you have less attributes and it works differently.
 Let see.
 
 
