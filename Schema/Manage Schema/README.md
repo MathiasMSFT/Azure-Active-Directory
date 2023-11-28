@@ -63,35 +63,5 @@ PS C:\> Manage-ExtensionProperties.ps1 -Delete -MyAppDisplayName "MyApps"
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Modules: Microsoft.Graph.Applications, Microsoft.Graph.Authentication, Microsoft.Graph.Identity.SignIns
-
-## Parameters
-### Applications
-List all applications
-
-### ServicePrincipal
-List all Service Principal
-
-### ExportFile
-Export your datas in CSV, HTML or both
-
-
-
-
 # Disclaimer
 See [DISCLAIMER](./DISCLAIMER.md).
