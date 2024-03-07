@@ -36,6 +36,8 @@ PS>
 
 
 
+
+
 # Videos
 ## Enroll Yubikey without cellular
 In this video, the user is going to enroll his Yubikey without MFA through a cellular. Some people don't want to use their personal cellular so it's possible for them to use a Yubikey.
